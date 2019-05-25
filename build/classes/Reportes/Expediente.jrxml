@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="10777091-482e-486d-9473-0d47778b9d42">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="IDPaciente" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     Expediente.`ID_Paciente` AS Expediente_ID_Paciente,
+     Expediente.`ID_Medico` AS Expediente_ID_Medico,
+     Expediente.`Fecha_Cita` AS Expediente_Fecha_Cita,
+     Expediente.`Descripcion_Consulta` AS Expediente_Descripcion_Consulta,
+     Expediente.`Diagnostico` AS Expediente_Diagnostico,
+     Expediente.`Receta` AS Expediente_Receta,
+     Expediente.`Nombres` AS Expediente_Nombres,
+     Expediente.`Apellidos` AS Expediente_Apellidos,
+     Expediente.`NombreM` AS Expediente_NombreM,
+     Expediente.`ApellidoM` AS Expediente_ApellidoM,
+     Expediente.`Especialidad` AS Expediente_Especialidad
+FROM
+     `Expediente` Expediente
+WHERE Expediente.`ID_Paciente` = $P{IDPaciente}]]>
+	</queryString>
+	<field name="Expediente_ID_Paciente" class="java.lang.Long"/>
+	<field name="Expediente_ID_Medico" class="java.lang.Long"/>
+	<field name="Expediente_Fecha_Cita" class="java.sql.Date"/>
+	<field name="Expediente_Descripcion_Consulta" class="java.lang.String"/>
+	<field name="Expediente_Diagnostico" class="java.lang.String"/>
+	<field name="Expediente_Receta" class="java.lang.String"/>
+	<field name="Expediente_Nombres" class="java.lang.String"/>
+	<field name="Expediente_Apellidos" class="java.lang.String"/>
+	<field name="Expediente_NombreM" class="java.lang.String"/>
+	<field name="Expediente_ApellidoM" class="java.lang.String"/>
+	<field name="Expediente_Especialidad" class="java.lang.String"/>
+	<group name="Expediente_ID_Medico">
+		<groupExpression><![CDATA[$F{Expediente_ID_Medico}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement uuid="f9d49c87-f709-40b3-8f97-c0c9a91ad92b" mode="Opaque" x="0" y="0" width="61" height="32" forecolor="#666666" backcolor="#E6E6E6"/>
+					<textElement>
+						<font size="26" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dr.]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="a2752f8e-311e-4678-b8a7-3ee20668e509" mode="Opaque" x="61" y="0" width="494" height="32" forecolor="#006699" backcolor="#E6E6E6"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Expediente_NombreM}.trim()+" "+$F{Expediente_ApellidoM}.trim()+" ("+$F{Expediente_Especialidad}.trim()+")"]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement uuid="ea63def4-b876-4959-aa17-4ce573ebd424" x="-20" y="32" width="595" height="1" forecolor="#666666"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Expediente_Fecha_Cita">
+		<groupExpression><![CDATA[$F{Expediente_Fecha_Cita}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="f5814ef8-ec81-4fbd-94f0-5c69f9cc7fe7" x="0" y="0" width="555" height="32" forecolor="#006699"/>
+					<textElement textAlignment="Right">
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Expediente_Fecha_Cita}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement uuid="618fdcfc-7f14-45fc-8a56-9c4c1b8f8f16" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="4f883067-a37a-4087-8aa2-2a25f9bc2bd6" x="20" y="9" width="234" height="43" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Clinica]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="9df0f8f5-397a-4462-8d51-f7bb9138049a" x="20" y="63" width="554" height="20" forecolor="#FEFEFE"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Expediente medico de "+$F{Expediente_Nombres}.trim()+" "+$F{Expediente_Apellidos}.trim()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement uuid="871183b1-dd65-44ec-ad14-621e8d4c38fc" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+			</line>
+			<staticText>
+				<reportElement uuid="b69fbe64-0d2f-4f55-82a0-99134aa2bae0" mode="Opaque" x="0" y="0" width="148" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<box>
+					<pen lineWidth="0.0" lineStyle="Dashed"/>
+					<topPen lineWidth="0.0" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.0" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.0" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.0" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="22c0042f-0b97-4f64-afc6-081cf03ea64a" mode="Opaque" x="148" y="0" width="182" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<box>
+					<pen lineWidth="0.0" lineStyle="Dashed"/>
+					<topPen lineWidth="0.0" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.0" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.0" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.0" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Diagnostico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6ef0caa0-b0bb-4af8-85cd-a19d83ed721e" mode="Opaque" x="330" y="0" width="225" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<box>
+					<pen lineWidth="0.0" lineStyle="Dashed"/>
+					<topPen lineWidth="0.0" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.0" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.0" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.0" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Receta]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement uuid="db457a98-b878-4279-a4f8-bc695193fde7" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="b5d0c588-740b-44db-a320-e0e6ec114bb8" x="0" y="0" width="148" height="20"/>
+				<box>
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Expediente_Descripcion_Consulta}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="09202968-7afe-4364-9b5c-854f2dadf5b1" x="148" y="0" width="182" height="20"/>
+				<box>
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Expediente_Diagnostico}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="044d45e2-17ac-4d4f-9dc6-d30926837f4b" x="330" y="1" width="224" height="19"/>
+				<box>
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Expediente_Receta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement uuid="447c947c-ee3c-40c8-b0a0-c0b9b610c09d" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="21dd1141-95df-4e69-b914-83281e2ae453" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="3357cb78-fd12-4f70-abb3-759803faeb2e" x="0" y="4" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

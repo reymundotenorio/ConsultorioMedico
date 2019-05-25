@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="17026fef-0210-4324-8fc4-11fdaa467a4e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="6"/>
+	<parameter name="ID_C" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     RecetaV.`ID_Consulta` AS RecetaV_ID_Consulta,
+     RecetaV.`Fecha_Cita` AS RecetaV_Fecha_Cita,
+     RecetaV.`NombresMed` AS RecetaV_NombresMed,
+     RecetaV.`ApellidosMed` AS RecetaV_ApellidosMed,
+     RecetaV.`NombreEsp` AS RecetaV_NombreEsp,
+     RecetaV.`Nombres` AS RecetaV_Nombres,
+     RecetaV.`Apellidos` AS RecetaV_Apellidos,
+     RecetaV.`Receta` AS RecetaV_Receta,
+     RecetaV.`ID_Cita` AS RecetaV_ID_Cita
+FROM
+     `RecetaV` RecetaV
+WHERE RecetaV.`ID_Cita` = $P{ID_C}]]>
+	</queryString>
+	<field name="RecetaV_ID_Consulta" class="java.lang.Long"/>
+	<field name="RecetaV_Fecha_Cita" class="java.sql.Date"/>
+	<field name="RecetaV_NombresMed" class="java.lang.String"/>
+	<field name="RecetaV_ApellidosMed" class="java.lang.String"/>
+	<field name="RecetaV_NombreEsp" class="java.lang.String"/>
+	<field name="RecetaV_Nombres" class="java.lang.String"/>
+	<field name="RecetaV_Apellidos" class="java.lang.String"/>
+	<field name="RecetaV_Receta" class="java.lang.String"/>
+	<field name="RecetaV_ID_Cita" class="java.lang.Long"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="86">
+			<frame>
+				<reportElement uuid="db9b6f8f-2d60-48bd-8db7-da03a52efb88" mode="Opaque" x="-20" y="-20" width="595" height="106" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="dbd0a5fb-8685-4816-a073-68807101fd31" x="10" y="20" width="247" height="43" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="30" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Receta Medica]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="4d141942-58f4-4bd2-b04e-15a4c31a9952" x="268" y="20" width="307" height="20" forecolor="#FEFEFE"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Dr. "+$F{RecetaV_NombresMed}.trim()+" "+$F{RecetaV_ApellidosMed}.trim()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f20e92a7-89d7-4b7c-84eb-55887e94aea6" x="268" y="43" width="307" height="20" forecolor="#FEFEFE"/>
+					<textElement textAlignment="Center">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RecetaV_NombreEsp}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="65f7ae4d-ae37-43dd-a31e-7f295ba9d34c" x="10" y="86" width="335" height="20" forecolor="#FEFEFE"/>
+					<textElement>
+						<font size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Direccion: Detras de los semaforos de Villa Progreso]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="65f7ae4d-ae37-43dd-a31e-7f295ba9d34c" x="367" y="86" width="228" height="20" forecolor="#FEFEFE"/>
+					<textElement>
+						<font size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Telefonos: 8888-8888 | 2222-2222]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="381">
+			<textField isStretchWithOverflow="true" pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="c3d9e9e5-aef4-440c-8368-fcfdf4eb6535" x="89" y="17" width="184" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RecetaV_Fecha_Cita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="65f7ae4d-ae37-43dd-a31e-7f295ba9d34c" x="15" y="17" width="74" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="65f7ae4d-ae37-43dd-a31e-7f295ba9d34c" x="15" y="48" width="74" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paciente:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f04e8ca6-bad7-4eed-80f7-8e8cf3fb3ce0" x="89" y="48" width="184" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RecetaV_Nombres}.trim()+" "+$F{RecetaV_Apellidos}.trim()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c5b1fe08-c854-4a93-8864-147db786be69" x="15" y="166" width="525" height="204"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RecetaV_Receta}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="4aa5ebee-e885-4a88-b3f4-dba897b737f7" x="15" y="89" width="525" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="65f7ae4d-ae37-43dd-a31e-7f295ba9d34c" x="15" y="106" width="525" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECETA MEDICA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement uuid="4695214e-b20c-4466-ba6d-76286922fb05" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pag "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="28c70204-c8ee-4521-b9fe-a7f59ae747e3" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="8cfeef55-d2a6-4847-ab0a-c3df03f6edbc" x="0" y="4" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

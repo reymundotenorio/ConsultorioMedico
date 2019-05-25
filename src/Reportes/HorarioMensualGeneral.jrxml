@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cf7a187a-d0bb-4cda-aa3d-5717d510774d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Mes" class="java.lang.Integer"/>
+	<parameter name="Anio" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     CitaV.`ID_Cita` AS CitaV_ID_Cita,
+     CitaV.`ID_Medico` AS CitaV_ID_Medico,
+     CitaV.`Nombres_Med` AS CitaV_Nombres_Med,
+     CitaV.`Apellidos_Med` AS CitaV_Apellidos_Med,
+     CitaV.`Fecha_Cita` AS CitaV_Fecha_Cita,
+     CitaV.`Dia_Cita` AS CitaV_Dia_Cita,
+     CitaV.`Hora_Cita` AS CitaV_Hora_Cita,
+     CitaV.`Semana_Cita` AS CitaV_Semana_Cita,
+     CitaV.`Nombres` AS CitaV_Nombres,
+     CitaV.`Apellidos` AS CitaV_Apellidos,
+     CitaV.`Estado` AS CitaV_Estado
+FROM
+     `CitaV` CitaV
+WHERE MONTH(CitaV.`Fecha_Cita`)= $P{Mes} AND YEAR(CitaV.`Fecha_Cita`)= $P{Anio}]]>
+	</queryString>
+	<field name="CitaV_ID_Cita" class="java.lang.Long"/>
+	<field name="CitaV_ID_Medico" class="java.lang.Long"/>
+	<field name="CitaV_Nombres_Med" class="java.lang.String"/>
+	<field name="CitaV_Apellidos_Med" class="java.lang.String"/>
+	<field name="CitaV_Fecha_Cita" class="java.sql.Date"/>
+	<field name="CitaV_Dia_Cita" class="java.lang.String"/>
+	<field name="CitaV_Hora_Cita" class="java.lang.String"/>
+	<field name="CitaV_Semana_Cita" class="java.lang.Integer"/>
+	<field name="CitaV_Nombres" class="java.lang.String"/>
+	<field name="CitaV_Apellidos" class="java.lang.String"/>
+	<field name="CitaV_Estado" class="java.lang.String"/>
+	<group name="CitaV_ID_Medico">
+		<groupExpression><![CDATA[$F{CitaV_ID_Medico}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement uuid="a4fecdc6-e624-49fa-bcae-2cc2a76186f3" mode="Opaque" x="0" y="0" width="35" height="32" forecolor="#666666" backcolor="#E6E6E6"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dr.]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="44f0db07-8d64-4ef1-9294-ea5ae0106dd5" mode="Opaque" x="35" y="1" width="520" height="32" forecolor="#006699" backcolor="#E6E6E6"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CitaV_Nombres_Med}.trim()+" "+$F{CitaV_Apellidos_Med}.trim()]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement uuid="d2abb604-9604-436e-a409-785da040d089" x="-20" y="32" width="595" height="1" forecolor="#666666"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement uuid="99ae2f5b-d29c-4cb3-9250-b77577d5aac6" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="dc45abf4-0cb6-4b3b-a442-9745829caea3" x="20" y="20" width="318" height="43" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Horario General]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="66187972-50a5-4932-9a04-a596dc39b857" x="395" y="43" width="180" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Mensual]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement uuid="a98ea4ec-74aa-4cad-ac80-7ac304db732a" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+			</line>
+			<staticText>
+				<reportElement uuid="e894d53f-5f85-4e2a-aa2d-3dcf587913d2" mode="Opaque" x="0" y="0" width="50" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="85b6e6d7-8a18-4454-a747-bd5c7bcf72f7" mode="Opaque" x="50" y="0" width="94" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="76616939-165a-4dd0-b37f-575f2c28e886" mode="Opaque" x="144" y="0" width="71" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="23bd50f2-ee03-41db-b93d-33306fbe4bc0" mode="Opaque" x="215" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1566a293-63c9-412f-b76a-0357ba36a834" mode="Opaque" x="294" y="0" width="166" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="156cba25-80da-4227-b54b-0fad99666323" mode="Opaque" x="460" y="0" width="95" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement uuid="870bec50-d7de-469d-9a79-ebc6027c3c51" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="0048074d-fabd-43ae-9fd8-c14bd03d3263" x="0" y="0" width="61" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CitaV_ID_Cita}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MMM/yyyy">
+				<reportElement uuid="8ba81bd5-4ebe-40da-a96d-c44da45e3b48" x="61" y="0" width="83" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CitaV_Fecha_Cita}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="63dbf057-fe8d-4845-a094-4d09d4f61019" x="144" y="0" width="71" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CitaV_Dia_Cita}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ee4b5f48-b4c5-4eba-bd3e-80a0e58fe500" x="215" y="0" width="79" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CitaV_Hora_Cita}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="f0c84b30-00e7-4bde-b73c-529be2a3d955" x="294" y="0" width="166" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CitaV_Nombres}.trim()+" "+$F{CitaV_Apellidos}.trim()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="e22e7504-7e4e-4224-a3ca-9cf5ec3c409b" x="460" y="0" width="95" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CitaV_Estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement uuid="51bf8437-a460-4aad-9522-e6d65190d4a2" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pag "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="32763d97-f248-46ea-8769-be9b912e8179" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy h.mm a">
+				<reportElement uuid="3037b194-e0ee-4c38-a487-c8c77b7f4553" x="0" y="4" width="205" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
