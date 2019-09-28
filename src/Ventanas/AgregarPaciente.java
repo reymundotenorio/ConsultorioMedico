@@ -5,9 +5,9 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Medico;
-import Clases.Paciente;
+import dao.Conexion;
+import dao.MedicoDao;
+import dao.PacienteDao;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -323,7 +323,7 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
                 "Complete",JOptionPane.ERROR_MESSAGE);
         }
         else{
-            Paciente.Agregar_Paciente(Nombre, Apellido, Peso, Altura, Edad, Alergias, Enfermedades, TipoSangre, Telefono);
+            PacienteDao.Agregar_Paciente(Nombre, Apellido, Peso, Altura, Edad, Alergias, Enfermedades, TipoSangre, Telefono);
             Limpiar();// TODO add your handling code here:
 
             }

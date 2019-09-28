@@ -5,7 +5,7 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
+import dao.Conexion;
 import java.awt.Color;
 import java.awt.Component;
 import java.sql.ResultSet;

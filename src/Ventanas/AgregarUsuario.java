@@ -5,7 +5,7 @@
  */
 package Ventanas;
 
-import Clases.Usuario;
+import dao.UsuarioDao;
 import javax.swing.JOptionPane;
 
 /**
@@ -138,7 +138,7 @@ public class AgregarUsuario extends javax.swing.JDialog {
             Role = "Admin";
         }
         
-        Usuario.Agregar_Usuario(Nombre, Pass, Role);
+        UsuarioDao.Agregar_Usuario(Nombre, Pass, Role);
         this.dispose();
     }
     

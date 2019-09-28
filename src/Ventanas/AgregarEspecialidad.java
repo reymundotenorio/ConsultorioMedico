@@ -5,7 +5,7 @@
  */
 package Ventanas;
 
-import Clases.Especialidad;
+import dao.EspecialidadDao;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
@@ -156,7 +156,7 @@ public class AgregarEspecialidad extends javax.swing.JInternalFrame {
          
         }
         else{
-            Especialidad.Agregar_Especialidad(Nombre, Descripcion);
+            EspecialidadDao.Agregar_Especialidad(Nombre, Descripcion);
             Limpiar();
         }
     }

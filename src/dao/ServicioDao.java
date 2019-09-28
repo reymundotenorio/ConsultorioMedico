@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Clases;
+package dao;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -15,51 +15,53 @@ import javax.swing.JOptionPane;
  *
  * @author UNI
  */
-public class Usuario {
+public class ServicioDao {
     
     
 public static ResultSet resultado;
 
-public static void Agregar_Usuario(String Nombre, String Contrasena, String Rol){
+public static void Agregar_Servicio(String Nombre,String Descripcion, double Precio){
 
+    
     
         try {
 
-        CallableStatement consulta = Conexion.con.prepareCall("{call AgregarUsuario (?,?,?)}");
+        CallableStatement consulta = Conexion.con.prepareCall("{call AgregarServicio (?,?,?)}");
 
                         consulta.setString(1, Nombre);
-                        consulta.setString(2, Contrasena);
-                        consulta.setString(3, Rol);    
-  
+                        consulta.setString(2, Descripcion);
+                        consulta.setDouble(3, Precio);
+                       
                         consulta.execute();
 
-         JOptionPane.showMessageDialog(null,"Datos del Usuario guardado correctamente","Información",JOptionPane.INFORMATION_MESSAGE);
+         JOptionPane.showMessageDialog(null,"Datos del Servicio guardado correctamente","Información",JOptionPane.INFORMATION_MESSAGE);
 
      }   catch (SQLException ex) {     
       JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
   }
 
-     
+
+
+        
 
     }
 
 
-public static void Actualizar_Usuario(int ID, String Nombre, String Contrasena, String Rol){
-   
+public static void Actualizar_Servicio(int ID, String Nombre,String Descripcion, double Precio ){
     
     
         try {
 
-        CallableStatement consulta = Conexion.con.prepareCall("{call ModificarUsuario (?,?,?,?) }");
+        CallableStatement consulta = Conexion.con.prepareCall("{call ModificarServicio (?,?,?,?) }");
 
                         consulta.setInt(1,ID);
                         consulta.setString(2, Nombre);
-                        consulta.setString(3, Contrasena);
-                        consulta.setString(4, Rol);  
-       
+                        consulta.setString(3, Descripcion);
+                        consulta.setDouble(4, Precio);                   
+
                         consulta.execute();
 
-         JOptionPane.showMessageDialog(null,"Datos del Usuario Actualizados Correctamente","Información",JOptionPane.INFORMATION_MESSAGE);
+         JOptionPane.showMessageDialog(null,"Datos del Servicio Actualizados Correctamente","Información",JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
 
@@ -68,13 +70,13 @@ public static void Actualizar_Usuario(int ID, String Nombre, String Contrasena, 
         }
 }
  
-public static void Activar_Usuario(int ID){
+public static void Activar_Servicio(int ID){
   
 
     
     try{
         
-               CallableStatement consulta = Conexion.con.prepareCall("{call Activar_Usuario (?)}");
+               CallableStatement consulta = Conexion.con.prepareCall("{call Activar_Servicio (?)}");
 
                consulta.setInt(1, ID);
                consulta.execute();
@@ -89,13 +91,13 @@ public static void Activar_Usuario(int ID){
     }
 }
 
-public static void Desactivar_Usuario(int ID){
+public static void Desactivar_Servicio(int ID){
   
 
     
     try{
         
-               CallableStatement consulta = Conexion.con.prepareCall("{call Desactivar_Usuario (?)}");
+               CallableStatement consulta = Conexion.con.prepareCall("{call Desactivar_Servicio (?)}");
 
                consulta.setInt(1, ID);
                consulta.execute();

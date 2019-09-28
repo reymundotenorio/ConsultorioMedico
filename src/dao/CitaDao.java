@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Clases;
+package dao;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author UNI
  */
-public class Cita {
+public class CitaDao {
     
     
 public static ResultSet resultado;

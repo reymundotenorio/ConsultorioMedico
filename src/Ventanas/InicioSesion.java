@@ -5,8 +5,9 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import com.sun.glass.events.KeyEvent;
+import dao.Conexion;
+import java.awt.event.KeyEvent;
+//import com.sun.glass.events.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
@@ -175,7 +176,7 @@ ResultSet resultado;
             try {
                 Conexion C = new Conexion();
 
-                C.Conectar(Credenciales.UserPass.User, Credenciales.UserPass.Pass);
+                C.Conectar(entities.UserPass.User, entities.UserPass.Pass);
             } catch (SQLException | ClassNotFoundException ex) {
                 System.out.println(ex.getMessage());
                 JOptionPane.showMessageDialog(this, "Usuario/contrasena erroneo", "Error de autentificacion", JOptionPane.ERROR_MESSAGE);

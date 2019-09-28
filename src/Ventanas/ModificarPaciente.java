@@ -5,9 +5,9 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Medico;
-import Clases.Paciente;
+import dao.Conexion;
+import dao.MedicoDao;
+import dao.PacienteDao;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -337,7 +337,7 @@ public class ModificarPaciente extends javax.swing.JDialog {
                 "Complete",JOptionPane.ERROR_MESSAGE);
         }
         else{
-            Paciente.Actualizar_Paciente(IDD,Nombre, Apellido, Peso, Altura, Edad, Alergias, Enfermedades, TipoSangre, Telefono);
+            PacienteDao.Actualizar_Paciente(IDD,Nombre, Apellido, Peso, Altura, Edad, Alergias, Enfermedades, TipoSangre, Telefono);
             Limpiar();// TODO add your handling code here:
 
             }

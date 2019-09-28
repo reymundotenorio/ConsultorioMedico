@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Medico;
+import dao.Conexion;
+import dao.MedicoDao;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -219,7 +219,7 @@ public class ModificarMedico extends javax.swing.JDialog {
         else{
           
             
-      Medico.Actualizar_Medico(IDD, Nombre, Apellido, ID_Especialidad);
+      MedicoDao.Actualizar_Medico(IDD, Nombre, Apellido, ID_Especialidad);
             
 //            Horario H = new Horario(null, true);
 //            H.setAM(this);

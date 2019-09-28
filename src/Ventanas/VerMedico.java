@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Medico;
+import dao.Conexion;
+import dao.MedicoDao;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -287,10 +287,10 @@ if(Fila >= 0){
     String Estado = model.getValueAt(Fila, Col).toString();
     
     if(Estado.equalsIgnoreCase("Activo")){
-     Medico.Desactivar_Medico(ID); //Des  
+     MedicoDao.Desactivar_Medico(ID); //Des  
     }
     if(Estado.equalsIgnoreCase("Inactivo")){
-      Medico.Activar_Medico(ID);  //Act
+      MedicoDao.Activar_Medico(ID);  //Act
     }
 
     CargarDatos();

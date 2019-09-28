@@ -5,9 +5,9 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Especialidad;
-import Clases.Servicio;
+import dao.Conexion;
+import dao.EspecialidadDao;
+import dao.ServicioDao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -246,10 +246,10 @@ public class VerServicio extends javax.swing.JInternalFrame {
             String Estado = model.getValueAt(Fila, Col).toString();
 
             if (Estado.equalsIgnoreCase("Activo")) {
-                Servicio.Desactivar_Servicio(ID); //Des  
+                ServicioDao.Desactivar_Servicio(ID); //Des  
             }
             if (Estado.equalsIgnoreCase("Inactivo")) {
-                Servicio.Activar_Servicio(ID);  //Act
+                ServicioDao.Activar_Servicio(ID);  //Act
             }
 
             CargarDatos();

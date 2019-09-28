@@ -5,9 +5,9 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Especialidad;
-import Clases.Servicio;
+import dao.Conexion;
+import dao.EspecialidadDao;
+import dao.ServicioDao;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -169,7 +169,7 @@ public class ModificarServicio extends javax.swing.JDialog {
 
         } else {
             double Precio = Double.parseDouble(PrecioF);
-            Servicio.Actualizar_Servicio(IDD, Nombre, Descripcion, Precio);
+            ServicioDao.Actualizar_Servicio(IDD, Nombre, Descripcion, Precio);
             Limpiar();
         }
     }

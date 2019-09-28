@@ -5,7 +5,6 @@
  */
 package Ventanas;
 
-import Clases.Panel_Fondo;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
@@ -133,7 +132,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        DesktopPane = new Panel_Fondo();
+        DesktopPane = new PanelFondo();
         getContentPane().add(DesktopPane, java.awt.BorderLayout.CENTER);
 
         Especialidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435341819_cross_1.png"))); // NOI18N

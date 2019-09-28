@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Medico;
+import dao.Conexion;
+import dao.MedicoDao;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;

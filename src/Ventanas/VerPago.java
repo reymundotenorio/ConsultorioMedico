@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Pago;
+import dao.Conexion;
+import dao.PagoDao;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -170,7 +170,7 @@ if(Fila >= 0){
     String Estado = model.getValueAt(Fila, Col).toString();
     
     if(Estado.equalsIgnoreCase("Activo")){
-        Pago.Cancelar_Pago(ID); //Des  
+        PagoDao.Cancelar_Pago(ID); //Des  
     }
     else{
         JOptionPane.showMessageDialog(this, "Ya ha cancelado este pago anteriormente", 

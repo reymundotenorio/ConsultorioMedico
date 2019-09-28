@@ -5,7 +5,7 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
+import dao.Conexion;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.ListSelectionModel;

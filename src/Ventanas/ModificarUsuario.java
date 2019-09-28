@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Usuario;
+import dao.Conexion;
+import dao.UsuarioDao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -166,7 +166,7 @@ public class ModificarUsuario extends javax.swing.JDialog {
             Role = "Admin";
         }
 
-        Usuario.Actualizar_Usuario(IDD, Nombre, Pass, Role);
+        UsuarioDao.Actualizar_Usuario(IDD, Nombre, Pass, Role);
         Limpiar();
     }
 

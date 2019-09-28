@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Especialidad;
+import dao.Conexion;
+import dao.EspecialidadDao;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -181,7 +181,7 @@ public class ModificarEspecialidad extends javax.swing.JDialog {
          
         }
         else{
-            Especialidad.Actualizar_Especialidad(IDD, Nombre, Descripcion);
+            EspecialidadDao.Actualizar_Especialidad(IDD, Nombre, Descripcion);
             Limpiar();
         }
     }

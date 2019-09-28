@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Especialidad;
-import Clases.Servicio;
+import dao.EspecialidadDao;
+import dao.ServicioDao;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
@@ -177,7 +177,7 @@ public class AgregarServicio extends javax.swing.JInternalFrame {
             
         } else {
             double Precio = Double.parseDouble(PrecioF);
-            Servicio.Agregar_Servicio(Nombre, Descripcion, Precio);
+            ServicioDao.Agregar_Servicio(Nombre, Descripcion, Precio);
             Limpiar();
         }
     }

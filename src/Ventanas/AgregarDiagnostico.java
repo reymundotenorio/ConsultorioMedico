@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Cita;
-import Clases.Conexion;
+import dao.CitaDao;
+import dao.Conexion;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.CopyOption;
@@ -17,7 +17,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import Clases.Consulta;
+import dao.ConsultaDao;
 import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
@@ -280,8 +280,8 @@ public class AgregarDiagnostico extends javax.swing.JDialog {
             return;
         }
 
-        Consulta.Agregar_Consulta(ID_Cita, ConsultaF, Diagnostico, Receta);
-        Cita.Cita_Atendida(ID_Cita);
+        ConsultaDao.Agregar_Consulta(ID_Cita, ConsultaF, Diagnostico, Receta);
+        CitaDao.Cita_Atendida(ID_Cita);
         
         AC.dispose();
         

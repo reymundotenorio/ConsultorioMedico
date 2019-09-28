@@ -5,7 +5,7 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
+import dao.Conexion;
 import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
