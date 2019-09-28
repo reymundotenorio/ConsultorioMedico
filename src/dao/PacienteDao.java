@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Clases;
+package dao;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author UNI
  */
-public class Paciente {
+public class PacienteDao {
     
     
 public static ResultSet resultado;

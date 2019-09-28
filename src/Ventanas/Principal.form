@@ -408,7 +408,7 @@
   <SubComponents>
     <Component class="javax.swing.JDesktopPane" name="DesktopPane">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="DesktopPane = new Panel_Fondo();"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="DesktopPane = new dao.PanelFondo();"/>
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">

@@ -5,7 +5,7 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
+import dao.Conexion;
 import java.awt.event.KeyEvent;
 //import com.sun.glass.events.KeyEvent;
 import java.sql.ResultSet;

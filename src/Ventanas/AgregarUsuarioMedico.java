@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Usuario;
+import dao.Conexion;
+import dao.UsuarioDao;
 import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
@@ -128,7 +128,7 @@ public class AgregarUsuarioMedico extends javax.swing.JDialog {
             return;
         }
         
-        Usuario.Agregar_Usuario(Nombre, Pass, "Medico");
+        UsuarioDao.Agregar_Usuario(Nombre, Pass, "Medico");
         this.dispose();
     }
     

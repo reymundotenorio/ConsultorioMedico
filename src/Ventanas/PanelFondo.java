@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases;
+package Ventanas;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -14,7 +14,7 @@ import javax.swing.JDesktopPane;
  *
  * @author UNI
  */
-public class Panel_Fondo extends JDesktopPane{
+public class PanelFondo extends JDesktopPane{
  
        private  Image IMG=new ImageIcon(getClass().getResource("/Images/historia-clinica.jpg")).getImage();
  

@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Paciente;
+import dao.Conexion;
+import dao.PacienteDao;
 import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -302,10 +302,10 @@ public class VerPaciente extends javax.swing.JInternalFrame {
             String Estado = model.getValueAt(Fila, Col).toString();
 
             if (Estado.equalsIgnoreCase("Activo")) {
-                Paciente.Desactivar_Paciente(ID); //Des  
+                PacienteDao.Desactivar_Paciente(ID); //Des  
             }
             if (Estado.equalsIgnoreCase("Inactivo")) {
-                Paciente.Activar_Paciente(ID);  //Act
+                PacienteDao.Activar_Paciente(ID);  //Act
             }
 
             CargarDatos();

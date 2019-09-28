@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Consulta;
+import dao.Conexion;
+import dao.ConsultaDao;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -259,7 +259,7 @@ public class ModificarDiagnostico extends javax.swing.JDialog {
         String Receta = txtReceta.getText().trim();
      
 
-        Consulta.Actualizar_Consulta(IDD, ConsultaF, Diagnostico, Receta);
+        ConsultaDao.Actualizar_Consulta(IDD, ConsultaF, Diagnostico, Receta);
        
         Limpiar();
     }

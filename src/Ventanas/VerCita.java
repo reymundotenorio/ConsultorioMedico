@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Cita;
-import Clases.Conexion;
+import dao.CitaDao;
+import dao.Conexion;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -166,7 +166,7 @@ public class VerCita extends javax.swing.JInternalFrame {
             String Estado = model.getValueAt(Fila, Col).toString();
 
             if (Estado.equalsIgnoreCase("Pendiente")) {
-                Cita.Cancelar_Cita(ID); //Des  
+                CitaDao.Cancelar_Cita(ID); //Des  
             } else {
 
                 if (Estado.equalsIgnoreCase("Atendida")) {

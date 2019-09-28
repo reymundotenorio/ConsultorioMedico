@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Clases;
+package dao;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -15,26 +15,27 @@ import javax.swing.JOptionPane;
  *
  * @author UNI
  */
-public class Dia_Medico {
+public class HoraMedicoDao {
     
     
 public static ResultSet resultado;
 
-public static void Agregar_Dia_Medico(int ID_Medico, String Dia){
+public static void Agregar_Hora_Medico(int ID_Dia_Medico, String HoraInicio, String HoraFinal){
 
     
     
         try {
 
-        CallableStatement consulta = Conexion.con.prepareCall("{call AgregarDia_Medico (?,?)}");
+        CallableStatement consulta = Conexion.con.prepareCall("{call AgregarHora_Medico (?,?,?)}");
 
-                        consulta.setInt(1, ID_Medico);
-                        consulta.setString(2, Dia);
+                        consulta.setInt(1, ID_Dia_Medico);
+                        consulta.setString(2, HoraInicio);
+                        consulta.setString(3, HoraFinal);
                     
                        
                         consulta.execute();
 
-     //    JOptionPane.showMessageDialog(null,"Datos del Dia Medico guardado correctamente","Información",JOptionPane.INFORMATION_MESSAGE);
+       //  JOptionPane.showMessageDialog(null,"Datos de Hora Medico guardado correctamente","Información",JOptionPane.INFORMATION_MESSAGE);
 
      }   catch (SQLException ex) {     
       JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
@@ -47,14 +48,14 @@ public static void Agregar_Dia_Medico(int ID_Medico, String Dia){
     }
 
 
-public static void Actualizar_Dia_Medico(int ID, String Titulo, 
+public static void Actualizar_Hora_Medico(int ID, String Titulo, 
        double Cuota, double Matricula, String Ruta_Imagen ){
    
     
     
         try {
 
-        CallableStatement consulta = Conexion.con.prepareCall("{call ModificarDia_Medico (?,?,?,?,?) }");
+        CallableStatement consulta = Conexion.con.prepareCall("{call ModificarHora_Medico (?,?,?,?,?) }");
 
                         consulta.setInt(1,ID);
                         consulta.setString(2, Titulo);
@@ -66,7 +67,7 @@ public static void Actualizar_Dia_Medico(int ID, String Titulo,
 
                         consulta.execute();
 
-         JOptionPane.showMessageDialog(null,"Datos de La Dia_Medico Actualizados Correctamente","Información",JOptionPane.INFORMATION_MESSAGE);
+         JOptionPane.showMessageDialog(null,"Datos de La Hora_Medico Actualizados Correctamente","Información",JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
 
@@ -74,12 +75,12 @@ public static void Actualizar_Dia_Medico(int ID, String Titulo,
 
         }
 }
-public static void Activar_Desactivar_Dia_Medico(int ID){
+public static void Activar_Desactivar_Hora_Medico(int ID){
   
     try{
         
             String estado = null;
-            resultado = Conexion.consulta("Select Estado_Dia_Medico from revista where ID_Dia_Medico = "+ID);
+            resultado = Conexion.consulta("Select Estado_Hora_Medico from revista where ID_Hora_Medico = "+ID);
             while(resultado.next()){
 
             estado = resultado.getString(1);
@@ -87,20 +88,20 @@ public static void Activar_Desactivar_Dia_Medico(int ID){
             
             
             if("Activo".equals(estado)){
-               CallableStatement consulta = Conexion.con.prepareCall("{call Desactivar_Dia_Medico (?)}");
+               CallableStatement consulta = Conexion.con.prepareCall("{call Desactivar_Hora_Medico (?)}");
 
                consulta.setInt(1, ID);
                consulta.execute();
-      JOptionPane.showMessageDialog(null,"Dia_Medico Desactivada Correctamente","Información",JOptionPane.INFORMATION_MESSAGE); 
+      JOptionPane.showMessageDialog(null,"Hora_Medico Desactivada Correctamente","Información",JOptionPane.INFORMATION_MESSAGE); 
           
             }
             
             if("Inactivo".equals(estado)){
-               CallableStatement consulta = Conexion.con.prepareCall("{call Activar_Dia_Medico (?)}");
+               CallableStatement consulta = Conexion.con.prepareCall("{call Activar_Hora_Medico (?)}");
 
                consulta.setInt(1, ID);
                consulta.execute();
-      JOptionPane.showMessageDialog(null,"Dia_Medico Activada Correctamente","Información",JOptionPane.INFORMATION_MESSAGE); 
+      JOptionPane.showMessageDialog(null,"Hora_Medico Activada Correctamente","Información",JOptionPane.INFORMATION_MESSAGE); 
             }
             
   
@@ -111,13 +112,13 @@ public static void Activar_Desactivar_Dia_Medico(int ID){
     }
 }
  
-public static void Activar_Dia_Medico(int ID){
+public static void Activar_Hora_Medico(int ID){
   
 
     
     try{
         
-               CallableStatement consulta = Conexion.con.prepareCall("{call Activar_Dia_Medico (?)}");
+               CallableStatement consulta = Conexion.con.prepareCall("{call Activar_Hora_Medico (?)}");
 
                consulta.setInt(1, ID);
                consulta.execute();
@@ -132,13 +133,13 @@ public static void Activar_Dia_Medico(int ID){
     }
 }
 
-public static void Desactivar_Dia_Medico(int ID){
+public static void Desactivar_Hora_Medico(int ID){
   
 
     
     try{
         
-               CallableStatement consulta = Conexion.con.prepareCall("{call Desactivar_Dia_Medico (?)}");
+               CallableStatement consulta = Conexion.con.prepareCall("{call Desactivar_Hora_Medico (?)}");
 
                consulta.setInt(1, ID);
                consulta.execute();

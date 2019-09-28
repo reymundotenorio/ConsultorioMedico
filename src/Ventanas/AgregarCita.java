@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Cita;
-import Clases.Conexion;
+import dao.CitaDao;
+import dao.Conexion;
 import java.awt.Color;
 import java.awt.Component;
 import java.sql.ResultSet;
@@ -395,7 +395,7 @@ public class AgregarCita extends javax.swing.JInternalFrame {
                         break;
                 }
 
-                Cita.Agregar_Cita(Fecha, Hora, ID_Medico, ID_Paciente, Dia_Semana, Semana);
+                CitaDao.Agregar_Cita(Fecha, Hora, ID_Medico, ID_Paciente, Dia_Semana, Semana);
                 Limpiar();// TODO add your handling code here:
 
             }

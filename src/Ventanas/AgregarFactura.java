@@ -5,9 +5,9 @@
  */
 package Ventanas;
 
-import Clases.Cita;
-import Clases.Conexion;
-import Clases.Pago;
+import dao.CitaDao;
+import dao.Conexion;
+import dao.PagoDao;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Component;
@@ -265,7 +265,7 @@ public class AgregarFactura extends javax.swing.JInternalFrame {
             
           
  
-            Pago.Agregar_Pago(ID_Paciente, ID_Medico);
+            PagoDao.Agregar_Pago(ID_Paciente, ID_Medico);
             int ID_PMax = 0;
             try{
                 
@@ -280,7 +280,7 @@ public class AgregarFactura extends javax.swing.JInternalFrame {
             for(int i=0; i<jTable1.getRowCount(); i++){
                 
             int ID_Servicio = Integer.parseInt(model.getValueAt(i, 0).toString());
-            Pago.Agregar_DetellePago(ID_PMax, ID_Servicio, Cantidad);
+            PagoDao.Agregar_DetellePago(ID_PMax, ID_Servicio, Cantidad);
             
             }
             

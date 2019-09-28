@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Especialidad;
+import dao.Conexion;
+import dao.EspecialidadDao;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -219,10 +219,10 @@ if(Fila >= 0){
     String Estado = model.getValueAt(Fila, Col).toString();
     
     if(Estado.equalsIgnoreCase("Activo")){
-     Especialidad.Desactivar_Especialidad(ID); //Des  
+     EspecialidadDao.Desactivar_Especialidad(ID); //Des  
     }
     if(Estado.equalsIgnoreCase("Inactivo")){
-      Especialidad.Activar_Especialidad(ID);  //Act
+      EspecialidadDao.Activar_Especialidad(ID);  //Act
     }
 
     CargarDatos();

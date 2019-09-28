@@ -5,9 +5,9 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Especialidad;
-import Clases.Usuario;
+import dao.Conexion;
+import dao.EspecialidadDao;
+import dao.UsuarioDao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -249,10 +249,10 @@ if(Fila >= 0){
     String Estado = model.getValueAt(Fila, Col).toString();
     
     if(Estado.equalsIgnoreCase("Activo")){
-        Usuario.Desactivar_Usuario(ID); //Des  
+        UsuarioDao.Desactivar_Usuario(ID); //Des  
     }
     if(Estado.equalsIgnoreCase("Inactivo")){
-     Usuario.Activar_Usuario(ID);  //Act
+     UsuarioDao.Activar_Usuario(ID);  //Act
     }
 
     CargarDatos();

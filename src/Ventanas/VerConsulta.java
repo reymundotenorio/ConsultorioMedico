@@ -5,8 +5,8 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Consulta;
+import dao.Conexion;
+import dao.ConsultaDao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -271,10 +271,10 @@ if(Fila >= 0){
     String Estado = model.getValueAt(Fila, Col).toString();
     
     if(Estado.equalsIgnoreCase("Activo")){
-     Consulta.Desactivar_Consulta(ID); //Des  
+     ConsultaDao.Desactivar_Consulta(ID); //Des  
     }
     if(Estado.equalsIgnoreCase("Inactivo")){
-      Consulta.Activar_Consulta(ID);  //Act
+      ConsultaDao.Activar_Consulta(ID);  //Act
     }
 
     CargarDatos();

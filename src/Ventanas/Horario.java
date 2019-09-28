@@ -5,10 +5,10 @@
  */
 package Ventanas;
 
-import Clases.Conexion;
-import Clases.Dia_Medico;
-import Clases.Hora_Medico;
-import Clases.Medico;
+import dao.Conexion;
+import dao.DiaMedicoDao;
+import dao.HoraMedicoDao;
+import dao.MedicoDao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.StringTokenizer;
@@ -731,7 +731,7 @@ public class Horario extends javax.swing.JDialog {
                   
             
                   
-         Medico.Agregar_Medico(Nombre, Apellido, ID_Especialidad);
+         MedicoDao.Agregar_Medico(Nombre, Apellido, ID_Especialidad);
          
            
             int ID_MaxU = 0;
@@ -777,7 +777,7 @@ public class Horario extends javax.swing.JDialog {
             }catch(SQLException ex){}
              
           
-            Medico.Usuario_Medico(ID_MaxM, ID_MaxU, Name);      
+            MedicoDao.Usuario_Medico(ID_MaxM, ID_MaxU, Name);      
             AM.dispose();
             this.dispose();
                   
@@ -827,7 +827,7 @@ else{
                 
                int ID_MaxD = 0;
                
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "L");
+               DiaMedicoDao.Agregar_Dia_Medico(ID_MaxM, "L");
                
                 try{
                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
@@ -841,7 +841,7 @@ else{
               String HoraInicio = (String) cmbDesde.getSelectedItem();
               String HoraFinal = (String) cmbHasta.getSelectedItem();
               
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+              HoraMedicoDao.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
                
             }
             
@@ -851,7 +851,7 @@ else{
                 
                int ID_MaxD = 0;
                
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "M");
+               DiaMedicoDao.Agregar_Dia_Medico(ID_MaxM, "M");
                
                 try{
                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
@@ -865,7 +865,7 @@ else{
               String HoraInicio = (String) cmbDesde2.getSelectedItem();
               String HoraFinal = (String) cmbHasta2.getSelectedItem();
               
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+              HoraMedicoDao.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
                
             }
             
@@ -875,7 +875,7 @@ else{
                 
                int ID_MaxD = 0;
                
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "X");
+               DiaMedicoDao.Agregar_Dia_Medico(ID_MaxM, "X");
                
                 try{
                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
@@ -889,7 +889,7 @@ else{
               String HoraInicio = (String) cmbDesde3.getSelectedItem();
               String HoraFinal = (String) cmbHasta3.getSelectedItem();
               
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+              HoraMedicoDao.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
                
             }
             
@@ -899,7 +899,7 @@ else{
                 
                int ID_MaxD = 0;
                
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "J");
+               DiaMedicoDao.Agregar_Dia_Medico(ID_MaxM, "J");
                
                 try{
                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
@@ -913,7 +913,7 @@ else{
               String HoraInicio = (String) cmbDesde4.getSelectedItem();
               String HoraFinal = (String) cmbHasta4.getSelectedItem();
               
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+              HoraMedicoDao.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
                
             }
             
@@ -923,7 +923,7 @@ else{
                 
                int ID_MaxD = 0;
                
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "V");
+               DiaMedicoDao.Agregar_Dia_Medico(ID_MaxM, "V");
                
                 try{
                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
@@ -937,7 +937,7 @@ else{
               String HoraInicio = (String) cmbDesde5.getSelectedItem();
               String HoraFinal = (String) cmbHasta5.getSelectedItem();
               
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+              HoraMedicoDao.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
                
             }
             
@@ -947,7 +947,7 @@ else{
                 
                int ID_MaxD = 0;
                
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "S");
+               DiaMedicoDao.Agregar_Dia_Medico(ID_MaxM, "S");
                
                 try{
                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
@@ -961,7 +961,7 @@ else{
               String HoraInicio = (String) cmbDesde6.getSelectedItem();
               String HoraFinal = (String) cmbHasta6.getSelectedItem();
               
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+              HoraMedicoDao.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
                
             }
             
@@ -971,7 +971,7 @@ else{
                 
                int ID_MaxD = 0;
                
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "D");
+               DiaMedicoDao.Agregar_Dia_Medico(ID_MaxM, "D");
                
                 try{
                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
@@ -985,7 +985,7 @@ else{
               String HoraInicio = (String) cmbDesde9.getSelectedItem();
               String HoraFinal = (String) cmbHasta9.getSelectedItem();
               
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+              HoraMedicoDao.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
                
             }
             
